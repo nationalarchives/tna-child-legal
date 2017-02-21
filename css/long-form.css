@@ -340,6 +340,13 @@ blockquote p{
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.fade {
+    opacity: 0;
 }
 
 @media screen

@@ -28,13 +28,28 @@
     var fadeNavigationIfFooterShown = function () {
         var footerVisible = $(window).scrollTop() + 600 > $(document).height() - $(window).height();
         var $nav = $('#cd-vertical-nav');
-        (footerVisible) ? $nav.fadeOut(1000) : $nav.fadeIn(1000);
+        (footerVisible) ? $nav.addClass('fade') : $nav.removeClass('fade');
     };
 
+    var tnaScrollSpy = function($els){
+        var currentScrollPosition = $(window).scrollTop();
+        $els.each(function(){
+            var sectionPosition = $(this).offset().top;
+            if( sectionPosition - 1 < currentScrollPosition ){
+                var id = $(this).attr('id');
+                var $target = $("[href=#"+id+"]")
+                $('.cd-menu').removeClass('is-selected');
+                $target.addClass('is-selected');
+            }
+        })
+    }
+
     $(window).on('scroll', function () {
+        var $cdSection = $('.cd-section');
         var largeScreen = $(window).width() > 1024;
         parallaxScroll(largeScreen);
         fadeNavigationIfFooterShown();
+        tnaScrollSpy($cdSection);
     });
 
     $('#top-menu').on('click', 'a', function (e, $container) {
@@ -44,14 +59,12 @@
         scrollToSection($link);
     });
 
+
     // IIFE
     var init = (function () {
         // Remove style attributes from .wp-caption
         $(".wp-caption").removeAttr("style");
         $("<div class='position-top-right'><span class='sprite icon-new-window'></span></div>").insertBefore(".wp-caption > a > img");
-        $('.cd-section').each(function () {
-            insertPlaceholders($(this));
-        })
     })();
 })
 (jQuery)
