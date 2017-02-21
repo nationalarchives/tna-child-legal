@@ -8,8 +8,8 @@ get_header();
 		<?php global $post; ?>
 
         <!--Navigation-->
-        <div id="cd-vertical-nav" role="navigation" class="hidden-xs">
-            <ul id="top-menu">
+        <div role="navigation" class="hidden-xs cd-vertical-nav">
+            <ul class="top-menu">
                 <li>
                     <a href="#<?php echo sanitize_title_with_dashes( get_the_title() ); ?>" class="cd-menu" tabindex="-1">
                         <span class="cd-dot"></span>
@@ -56,41 +56,8 @@ get_header();
 					if ( has_post_thumbnail( $post->ID ) ): ?>
 					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
                     <figure>
-                        <div class="lf-image-bg-fixed-height"
-                             style="background-image: url('<?php echo make_path_relative( $image[0] ); ?>')">
+                        <div class="lf-image-bg-fixed-height" role="img" <?php aria_labels(); ?> style="background-image: url('<?php echo make_path_relative( $image[0] ); ?>')">
 							<?php get_template_part( 'breadcrumb' ); ?>
-                        <!-- Social Media Sharing-->
-                            <div class="archive-social-media">
-                                <div id="fb-root"></div>
-                                <script>(function (d, s, id) {
-                                        var js, fjs = d.getElementsByTagName(s)[0];
-                                        if (d.getElementById(id)) return;
-                                        js = d.createElement(s);
-                                        js.id = id;
-                                        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
-                                        fjs.parentNode.insertBefore(js, fjs);
-                                    }(document, 'script', 'facebook-jssdk'));</script>
-                                <div class="fb-share-button"
-                                     data-href="change to the url of the page here"
-                                     data-layout="button_count" tabindex="0"></div>
-
-                                <span tabindex="0">
-                                    <a href="https://twitter.com/share" class="twitter-share-button"
-                                       data-url="change to the url of the page here"
-                                       data-via="UKNatArchives">Tweet</a>
-                                    <script>!function (d, s, id) {
-                                           var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                                           if (!d.getElementById(id)) {
-                                               js = d.createElement(s);
-                                               js.id = id;
-                                               js.src = p + '://platform.twitter.com/widgets.js';
-                                               fjs.parentNode.insertBefore(js, fjs);
-                                           }
-                                       }(document, 'script', 'twitter-wjs');
-                                    </script>
-                                </span>
-                            </div>
-                        <!--END Social Media Sharing-->
                             <div class="container-lf">
                                 <div class="intro-text">
                                     <h1 class="intro-heading"><?php the_title(); ?></h1>
@@ -127,7 +94,7 @@ get_header();
 		?>
         <!--End page content-->
 
-        <!--Loop through posts-->
+        <!--Loop through child pages-->
 		<?php
 		$args      = array(
 			'post_parent'    => $post->ID,
@@ -147,9 +114,7 @@ get_header();
 					if ( has_post_thumbnail( $post->ID ) ):
 					?>
                     <figure class="full-width">
-                        <div class="image-bg-fixed-height-2"
-                             style="background-image: url(<?php echo make_path_relative( $image[0] ); ?>);')">
-                        </div>
+                        <div class="image-bg-fixed-height-2"  <?php aria_labels(); ?> style="background-image: url(<?php echo make_path_relative( $image[0] ); ?>);')"></div>
 						<?php endif; ?>
 						<?php
 						$get_description = get_post( get_post_thumbnail_id() )->post_excerpt;
@@ -175,7 +140,7 @@ get_header();
 		endif;
 		wp_reset_postdata();
 		?>
-        <!--End Loop through posts-->
+        <!--End Loop through child pages-->
     </main>
 
 <?php get_footer(); ?>

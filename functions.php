@@ -38,3 +38,13 @@ function long_form_assets(){
 	}
 }
 add_action( 'wp_enqueue_scripts', 'long_form_assets' );
+
+function aria_labels(){
+	$img_title = get_post(get_post_thumbnail_id())->post_title;
+	$img_caption = get_post(get_post_thumbnail_id())->post_excerpt;
+	if ( $img_caption ) {
+		echo 'aria-labelby="'.$img_caption.'"';
+	} else {
+		echo 'aria-label="'.$img_title.'"';
+	}
+}

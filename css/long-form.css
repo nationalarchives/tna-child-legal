@@ -4,33 +4,21 @@ Version:	1.0
 Date published:	04/03/2016
 Designed by: Punal C
 Primary use: Long form template
-[Table of contents]
-1. General
-	1.1 Reset Bootstrap
-	1.2 Reset TNA Base
-2. Sections
-3. Container
-4. Components
-5. Navigation
+
 -------------------------------------------------------------------*/
 
-/*--------------------
-1. General
---------------------*/
 
 body {
     margin: 0;
 }
 
-/*--------------------
-1.1 Reset Base-Sass
---------------------*/
-ol li, ul li {
-    margin: 0 0 -0.25em;
-    line-height: 1.6;
-}
 aside {
     margin-bottom: .45em;
+}
+
+.container-lf ul, .container-lf ol {
+    padding-left: 2.5em;
+    padding-right: 1.5em;
 }
 
 #goTop {
@@ -59,7 +47,7 @@ div.container-lf p {
 
 .intro-text p {
     color: #ffffff;
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 
@@ -70,7 +58,6 @@ div.container-lf p {
     margin-bottom: 25px;
     word-spacing: 10px;
     color: #FFFFFF;
-    text-shadow: #a3a39a;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
@@ -116,11 +103,6 @@ figure > br {
     margin-right: 0;
     margin-left: 0;
     margin-top: 1.5em;
-}
-
-.col-md-6 img {
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .cd-section:nth-of-type(1) > figure {
@@ -185,7 +167,7 @@ blockquote p{
 @media (max-width: 768px) {
     blockquote{
         display:block;
-        padding: 23px 20px 15px 0px;
+        padding: 23px 0;
         margin: 30px auto 30px auto;
         position: relative;
 
@@ -322,18 +304,17 @@ blockquote p{
 6. Navigation
 --------------------*/
 
-#cd-vertical-nav {
+.cd-vertical-nav {
     position: fixed;
     right: 40px;
-    top: 35%;
+    top: 40%;
     bottom: auto;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     z-index: 1;
-    display: block;
     margin: 0;
     padding: 0;
     border: 0;
@@ -353,47 +334,47 @@ blockquote p{
 and (min-device-width: 1200px)
 and (max-device-width: 1600px)
 and (-webkit-min-device-pixel-ratio: 1) {
-    #cd-vertical-nav {
+    .cd-vertical-nav {
         top: 45%;
     }
 }
 
-#cd-vertical-nav li {
+.cd-vertical-nav li {
     text-align: right;
 }
 
-#cd-vertical-nav a {
+.cd-vertical-nav a {
     display: inline-block;
     backface-visibility: visible;
     -webkit-backface-visibility: visible;
     text-decoration: none;
 }
 
-#cd-vertical-nav a:focus {
+.cd-vertical-nav a:focus {
     outline: none;
     background: none;
 }
 
-#cd-vertical-nav a.is-selected .cd-dot {
+.cd-vertical-nav a.is-selected .cd-dot {
     background-color: white;
     border-color: #008484;
     border-style: solid;
-    transform: scale(1);
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
+    transform: scale(1);
 }
 
-#cd-vertical-nav a.is-selected .cd-label {
-    transform: scale(.7);
+.cd-vertical-nav a.is-selected .cd-label {
     -webkit-transform: scale(.7);
     -moz-transform: scale(.7);
     -ms-transform: scale(.7);
     -o-transform: scale(.7);
+    transform: scale(.7);
 }
 
-#cd-vertical-nav .cd-dot {
+.cd-vertical-nav .cd-dot {
     position: relative;
     top: 13px;
     height: 35px;
@@ -405,34 +386,34 @@ and (-webkit-min-device-pixel-ratio: 1) {
     -moz-transition: -moz-transform 0.2s, background-color 0.5s;
 }
 
-#cd-vertical-nav a span {
+.cd-vertical-nav a span {
     float: right;
-    transform: scale(0.6);
     -webkit-transform: scale(0.6);
     -moz-transform: scale(0.6);
     -ms-transform: scale(0.6);
     -o-transform: scale(0.6);
+    transform: scale(0.6);
 }
 
 
-#cd-vertical-nav a:after {
+.cd-vertical-nav a:after {
     content: "";
     display: table;
     clear: both;
 }
 
-#cd-vertical-nav a:hover span {
+.cd-vertical-nav a:hover span {
     transform: scale(.7);
     -webkit-transform: scale(.7);
     -moz-transform: scale(.7);
     -ms-transform: scale(.7);
     -o-transform: scale(.7);
 }
-#cd-vertical-nav a:hover .cd-label {
+.cd-vertical-nav a:hover .cd-label {
     opacity: 1;
 }
 
-#cd-vertical-nav .cd-label {
+.cd-vertical-nav .cd-label {
     position: relative;
     margin-right: 18px;
     padding: .5em .5em;
@@ -453,7 +434,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
     -ms-backface-visibility: visible;
 }
 
-#top-menu > li {
+.top-menu > li {
     margin: 0 0 -1.25em;
     list-style: none;
 }
@@ -489,7 +470,7 @@ and (min-device-width: 768px)
 and (max-device-width: 1024px)
 and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 1) {
-    #cd-vertical-nav {
+    .cd-vertical-nav {
         display: none;
     }
     .intro-text {
@@ -502,7 +483,7 @@ and (min-device-width: 768px)
 and (max-device-width: 1024px)
 and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 2) {
-    #cd-vertical-nav {
+    .cd-vertical-nav {
         display: none;
     }
 }
@@ -526,24 +507,19 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 @media only screen
 and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (-webkit-min-device-pixel-ratio: 2) {
+and (max-device-width: 1024px) {
     .archive-social-media {
         position: relative;
     }
 }
 
-
 @media only screen
 and (min-device-width: 320px)
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
+and (max-device-width: 568px) {
     .intro-text {
         padding-left: 1.5em;
         padding-top: 7em;
     }
-
     .intro-text > .intro-heading {
         font-size: 1.8em;
         line-height: 35px;
@@ -551,18 +527,15 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 }
 
-
 .container-lf {
     display: block;
 }
-
 
 div.wp-caption {
     padding-left: 1.5em;
     padding-right: 1.5em;
     margin-top: 1.5em;
     position: relative;
-
 }
 
 p.wp-caption.img-responsive-text {
@@ -592,7 +565,7 @@ p.wp-caption.img-responsive-text {
     padding-right: 1.5em;
     padding-left: 1.5em;
 }
-.gallery-columns-2 .gallery-item { width: 50%; }
+.gallery-columns-2 .gallery-item { width: 100%; }
 .gallery-columns-4 .gallery-item { width: 25%; }
 
 
@@ -614,13 +587,7 @@ p.wp-caption.img-responsive-text {
 
 @media only screen
 and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2) {
-    .gallery .gallery-item {
-        margin-left: 1.5em;
-        margin-left: 1.5em;
-        width: 80% !important;
-    }
+and (max-device-width: 480px) {
     .gallery-icon > img {
         flex-shrink: 0;
         min-width:100%;
@@ -634,7 +601,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
     .image-bg-fixed-height-2 {
         height: 250px;
@@ -644,7 +610,6 @@ and (orientation: portrait) {
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: landscape) {
     .image-bg-fixed-height-2 {
         min-height: 800px;
@@ -660,8 +625,7 @@ and (orientation: landscape) {
 @media only screen
 and (min-device-width: 768px)
 and (max-device-width: 1024px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 1) {
+and (orientation: portrait) {
     .intro-text {
         padding-top: 20px;
     }
@@ -677,8 +641,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 @media only screen
 and (min-device-width: 768px)
 and (max-device-width: 1024px)
-and (orientation: landscape)
-and (-webkit-min-device-pixel-ratio: 1) {
+and (orientation: landscape) {
     .intro-text .intro-heading {
         padding-top: 100px;
     }
@@ -723,7 +686,6 @@ and (-webkit-min-device-pixel-ratio: 1) {
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
     .center {
         padding-left: 5px;
@@ -749,8 +711,7 @@ and (orientation : landscape) {
 
 @media only screen
 and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2) {
+and (max-device-width: 480px) {
     .image-bg-fixed-height-2 {
         background-attachment: scroll;
     }
@@ -758,8 +719,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 @media only screen
 and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (-webkit-min-device-pixel-ratio: 2) {
+and (max-device-width: 1024px) {
     .image-bg-fixed-height-2 {
         background-attachment: scroll;
     }

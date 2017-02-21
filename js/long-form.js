@@ -27,7 +27,7 @@
 
     var fadeNavigationIfFooterShown = function () {
         var footerVisible = $(window).scrollTop() + 600 > $(document).height() - $(window).height();
-        var $nav = $('#cd-vertical-nav');
+        var $nav = $('.cd-vertical-nav');
         (footerVisible) ? $nav.addClass('fade') : $nav.removeClass('fade');
     };
 
@@ -52,9 +52,9 @@
         tnaScrollSpy($cdSection);
     });
 
-    $('#top-menu').on('click', 'a', function (e, $container) {
+    $('.top-menu').on('click', 'a', function (e, $container) {
         $link = $(e.currentTarget);
-        $container = $('#top-menu');
+        $container = $('.top-menu');
         manageLinkState($link, $container);
         scrollToSection($link);
     });
