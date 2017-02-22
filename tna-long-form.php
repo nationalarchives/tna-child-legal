@@ -77,10 +77,12 @@ get_header();
                     </figure>
                     <div class="full-div">
                         <div class="container-lf">
-							<?php
-							$the_content = make_path_relative( apply_filters( 'the_content', get_the_content() ) );
-							echo $the_content;
-							?>
+                            <div class="entry-content">
+                                <?php
+                                $the_content = make_path_relative( apply_filters( 'the_content', get_the_content() ) );
+                                echo $the_content;
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -127,11 +129,13 @@ get_header();
 				<?php endif; ?>
                     <div class="full-div">
                         <div class="container-lf">
-                            <h2><a href="#" class="sr-only sr-only-focusable"><?php the_title(); ?></a></h2>
-							<?php
-							$the_content = make_path_relative( apply_filters( 'the_content', get_the_content() ) );
-							echo $the_content;
-							?>
+                            <div class="entry-content">
+                                <h2><a href="#" class="sr-only sr-only-focusable"><?php the_title(); ?></a></h2>
+                                <?php
+                                $the_content = make_path_relative( apply_filters( 'the_content', get_the_content() ) );
+                                echo $the_content;
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </section>

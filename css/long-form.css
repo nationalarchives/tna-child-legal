@@ -725,15 +725,11 @@ and (max-device-width: 1024px) {
     }
 }
 
-img.aligncenter {
-    width: 100%;
-}
-
 .size-large {
     width: 100%;
     height: auto;
 }
 
-div.wp-caption a:focus{
+div.wp-caption a:focus {
     display: inline-block;
 }
