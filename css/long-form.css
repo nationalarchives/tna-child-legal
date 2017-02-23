@@ -73,6 +73,9 @@ div.container-lf p {
         letter-spacing: .5px;
         padding-top: 100px;
     }
+    #breadcrumb-holder {
+        top: 6em;
+    }
 }
 
 
@@ -734,6 +737,6 @@ div.wp-caption a:focus {
 
 #breadcrumb-holder {
     position: absolute;
-    top: 4em;
+    /*top: 4em;*/
     width: 100%;
 }
