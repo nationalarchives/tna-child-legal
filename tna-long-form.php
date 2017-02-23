@@ -44,6 +44,7 @@ get_header();
         <!--End Navigation-->
 
         <!--Get page content-->
+	    <?php get_template_part( 'breadcrumb' ); ?>
 		<?php
 		if ( have_posts() ):
 			while ( have_posts() ):
@@ -57,7 +58,6 @@ get_header();
 					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
                     <figure>
                         <div class="lf-image-bg-fixed-height" role="img" <?php aria_labels(); ?> style="background-image: url('<?php echo make_path_relative( $image[0] ); ?>')">
-							<?php get_template_part( 'breadcrumb' ); ?>
                             <div class="container-lf">
                                 <div class="intro-text">
                                     <h1 class="intro-heading"><?php the_title(); ?></h1>
@@ -66,13 +66,13 @@ get_header();
                             </div>
                         </div>
 						<?php
-						$get_description = get_post( get_post_thumbnail_id() )->post_excerpt;
-						if ( ! empty( $get_description ) ) {
-							echo '<figcaption class="wp-caption-text">' . $get_description . '</figcaption>';
-						}
+                            $get_img_description = get_post( get_post_thumbnail_id() )->post_excerpt;
+                            if ( ! empty( $get_img_description ) ) {
+                                echo '<figcaption id="'.get_post_thumbnail_id().'" class="wp-caption-text">' . $get_img_description . '</figcaption>';
+                            }
 						?>
 						<?php
-						endif;
+						    endif;
 						?>
                     </figure>
                     <div class="full-div">
@@ -116,12 +116,16 @@ get_header();
 					if ( has_post_thumbnail( $post->ID ) ):
 					?>
                     <figure class="full-width">
-                        <div class="image-bg-fixed-height-2"  <?php aria_labels(); ?> style="background-image: url(<?php echo make_path_relative( $image[0] ); ?>);')"></div>
+                        <div role="img" class="image-bg-fixed-height-2"  <?php aria_labels(); ?> style="background-image: url(<?php echo make_path_relative( $image[0] ); ?>);')">
+                            <div class="accessibility_heading">
+                                <h2><a href="#" class="sr-only sr-only-focusable"><?php the_title(); ?></a></h2>
+                            </div>
+                        </div>
 						<?php endif; ?>
 						<?php
 						$get_description = get_post( get_post_thumbnail_id() )->post_excerpt;
 						if ( ! empty( $get_description ) ) {
-							echo '<figcaption class="wp-caption-text">' . $get_description . '</figcaption>';
+							echo '<figcaption id="'.get_post_thumbnail_id().'" class="wp-caption-text">' . $get_description . '</figcaption>';
 						}
 						?>
 						<?php if ( has_post_thumbnail( $post->ID ) ): ?>

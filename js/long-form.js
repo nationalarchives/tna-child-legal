@@ -2,7 +2,7 @@
 //  * Created by pchotrani on 17/03/16.
 //  */
 
-(function ($) {
+(function ($) { // this is an immediately invoked Function, to protect variables from being out of the scope.
 
     var parallaxScroll = function (largeScreen) {
         if (largeScreen) {

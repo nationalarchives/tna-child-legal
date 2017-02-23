@@ -43,7 +43,8 @@ function aria_labels(){
 	$img_title = get_post(get_post_thumbnail_id())->post_title;
 	$img_caption = get_post(get_post_thumbnail_id())->post_excerpt;
 	if ( $img_caption ) {
-		echo 'aria-labelby="'.$img_caption.'"';
+		//echo 'aria-labelledby="'.$img_caption.'"';
+		echo 'aria-labelledby="'.get_post_thumbnail_id().'"';
 	} else {
 		echo 'aria-label="'.$img_title.'"';
 	}
