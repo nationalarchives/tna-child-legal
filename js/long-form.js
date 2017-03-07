@@ -60,13 +60,12 @@
     }
 
     $(window).on('scroll', function () {
-        var $body = $('body');
         var $cdSection = $('.cd-section');
         var largeScreen = $(window).width() > 1024;
         parallaxScroll(largeScreen);
         fadeNavigationIfFooterShown();
         tnaScrollSpy($cdSection);
-        throttleScroll($body);
+        throttleScroll($('body'));
     });
 
     $('.top-menu').on('click', 'a', function (e, $container) {
