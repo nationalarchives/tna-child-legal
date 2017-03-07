@@ -44,12 +44,29 @@
         })
     }
 
+    var throttleScroll = function(){
+
+        var scheduled = false;
+        window.addEventListener('scroll', function() {
+
+            if (! scheduled) {
+                scheduled = true;
+                setTimeout(function(){
+                    scheduled = false;
+                    console.log('scrollCount');
+                }, 1000)
+            }
+        });
+    }
+
     $(window).on('scroll', function () {
+        var $body = $('body');
         var $cdSection = $('.cd-section');
         var largeScreen = $(window).width() > 1024;
         parallaxScroll(largeScreen);
         fadeNavigationIfFooterShown();
         tnaScrollSpy($cdSection);
+        throttleScroll($body);
     });
 
     $('.top-menu').on('click', 'a', function (e, $container) {
