@@ -44,19 +44,24 @@
         })
     }
 
-    var throttleScroll = function(){
+    function debounce(call_back, wait, this_argument) {
 
-        var scheduled = false;
-        window.addEventListener('scroll', function() {
+        var timer = null;
 
-            if (! scheduled) {
-                scheduled = true;
-                setTimeout(function(){
-                    scheduled = false;
-                    console.log('scrollCount');
-                }, 1000)
-            }
-        });
+        return function (...args) {
+
+            var context = this_argument || this;
+
+            window.clearTimeout(timer);
+
+            timer = window.setTimeout(() => {
+
+                timer = null;
+
+                call_back.apply(context, args);
+
+            }, wait);
+        };
     }
 
     $(window).on('scroll', function () {
@@ -65,7 +70,12 @@
         parallaxScroll(largeScreen);
         fadeNavigationIfFooterShown();
         tnaScrollSpy($cdSection);
-        throttleScroll($('body'));
+        window.addEventListener("scroll", debounce(() =>{
+
+    console.log("I am being debounced!");
+
+}, 200));
+        
     });
 
     $('.top-menu').on('click', 'a', function (e, $container) {
