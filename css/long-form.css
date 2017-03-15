@@ -370,11 +370,11 @@ and (max-device-width: 1600px) {
 }
 
 .cd-vertical-nav a.is-selected .cd-label {
-    -webkit-transform: scale(.7);
-    -moz-transform: scale(.7);
-    -ms-transform: scale(.7);
-    -o-transform: scale(.7);
     transform: scale(.7);
+    webkit-transform: scale(.7);
+    moz-transform: scale(.7);
+    ms-transform: scale(.7);
+    o-transform: scale(.7);
 }
 
 .cd-vertical-nav .cd-dot {

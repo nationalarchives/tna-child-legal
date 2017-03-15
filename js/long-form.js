@@ -58,9 +58,12 @@
 
             window.clearTimeout(timer);
 
-            timer = window.setTimeout(function () {
+            timer = window.setTimeout(() => {
+
                 timer = null;
+
                 call_back.apply(context, args);
+
             }, wait);
         };
     }
@@ -71,8 +74,8 @@
         parallaxScroll(largeScreen);
         fadeNavigationIfFooterShown();
         tnaScrollSpy($cdSection);
-        console.log('Testing');
     }, 50));
+
 
     $('.top-menu').on('click', 'a', function (e, $container) {
         $link = $(e.currentTarget);
