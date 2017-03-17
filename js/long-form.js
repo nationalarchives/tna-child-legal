@@ -58,12 +58,9 @@
 
             window.clearTimeout(timer);
 
-            timer = window.setTimeout(() => {
-
+            timer = window.setTimeout(function () {
                 timer = null;
-
                 call_back.apply(context, args);
-
             }, wait);
         };
     }
