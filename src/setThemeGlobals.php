@@ -21,7 +21,7 @@ function setThemeGlobals($environment = null) {
             break;
         case 'external':
             $pre_crumbs = array(
-                'About' => '/legal/'
+                'Legal' => '/legal/'
             );
             $pre_path = '/legal';
             break;
